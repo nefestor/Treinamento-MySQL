@@ -19,6 +19,14 @@ select avg(id) as media_dias
 		group by day(login_date)
 		order by day(login_date) desc) test
 
+Conslta 2 (Correta):
+
+select avg(teste2) as teste
+from (select distinct top 30 count(id_user) as teste2, CONVERT(DATE, login_date) as Dia 
+from dbo.logins 
+group by CONVERT(DATE, login_date)
+order by CONVERT(DATE, login_date) desc) teste3
+
 Consulta 3:
 
 select sum(length) as total 
