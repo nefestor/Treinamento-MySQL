@@ -7,21 +7,30 @@ Fazer uma consulta que mostre os estados que possuem mais de 100 cidades e os qu
 Consulta 1:
 
 select count(distinct id_user) as QuantidadeLogin
-from dbo.logins
-group by month(login_date)
-order by month(login_date)
+	from dbo.logins
+	group by month(login_date)
+	order by month(login_date)
 
 Consulta 2:
 
----
+select avg(id) as media_dias
+	from (select distinct top(30) day(login_date) as dia, count(id_user) as id
+		from dbo.logins
+		group by day(login_date)
+		order by day(login_date) desc) test
 
 Consulta 3:
 
 select sum(length) as total 
-	from (select top(10) length from stored_files
-	group by length
-	order by length desc) files
+	from (select top(10) length 
+		from stored_files
+		group by length
+		order by length desc) files
 
 Consulta 4:
 
----
+select id_state, count(id_state) as Municípios 
+	from dbo.cities 
+	group by id_state 
+	having count(id_state)<20 or count(id_state)>100 
+	order by id_state

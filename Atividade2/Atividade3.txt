@@ -1,0 +1,35 @@
+Popular as seguintes tabelas no banco de dados da primeira aula:
+Persons.users_types (script no próximo slide)
+Persons.Users
+Courses.Courses
+Classes.courses_classes
+
+Criar registros para a tabela Classes.courses_classes_students. Somente podem entrar nesta tabela ids de usuários que sejam estudantes e que estejam matriculados no máximo em duas outras classes de cursos, ou seja, devem estar no máximo em três classes.
+
+
+***
+insert into [Persons.users_types]
+values      ('Tutor', 0)
+          , ('Aluno', 0);
+commit;
+go
+***
+
+Inserir registros na tabela Classes.courses_classes_tutors seguindo os critérios abaixo:
+Um tutor corresponde a um registro na tabela Persons.Users onde o campo id_user_type corresponda ao de um tutor (inspecionar a tabela Persons.users_types)
+Um tutor só pode ter no máximo duas classes que seja inserido como tutor
+Dica: sempre observar o valor da coluna Removed
+
+Inserir registros para a tabela Classes.coursess_classes_contentes
+Inserir registros para a tabela Contents.courses_classes_activities
+Inserir registros para a tabela Contents.courses_classes_activities_students
+Executar uma consulta indicando os alunos que entregaram as atividades nas três situações:
+Antes do prazo de entrega (Contents.courses_classes_activities -> scheduled_date)
+Dentro do prazo de entrega
+Após o prazo de entrega
+
+Adicionar a coluna student_score (inteiro, não nulo, default zero), na tabela Classes.courses_classes_students.
+
+Realizar update nesta tabela incrementando em +1 o valor da coluna student_score para os alunos que tiveram registros de entrega de atividades antes do prazo proposto.
+
+Realizar update nesta tabela decrementando em -1 o valor da coluna student_score para os alunos que tiveram registros de entrega de atividades após o prazo proposto.
