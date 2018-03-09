@@ -1,0 +1,27 @@
+Fazer uma consulta que mostre a quantidade de usuários diferentes que fizeram login no sistema em cada mês
+Fazer uma consulta que mostre a média de logins no sistema por dia, nos últimos 30 dias existentes no arquivo
+Fazer uma consulta que mostre o total de espaço utilizado pelos dez maiores arquivos
+Fazer uma consulta que mostre os estados que possuem mais de 100 cidades e os que possuem menos de 20 em um único rowset
+
+
+Consulta 1:
+
+select count(distinct id_user) as QuantidadeLogin
+from dbo.logins
+group by month(login_date)
+order by month(login_date)
+
+Consulta 2:
+
+---
+
+Consulta 3:
+
+select sum(length) as total 
+	from (select top(10) length from stored_files
+	group by length
+	order by length desc) files
+
+Consulta 4:
+
+---
