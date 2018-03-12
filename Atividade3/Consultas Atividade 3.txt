@@ -1,0 +1,7 @@
+select cs.id_course_class_student from Contents.Courses_Classes_Activities_Students ac, Classes.Courses_Classes_Students cs, Contents.Courses_Classes_Activities cac where ac.delivery_date > cac.scheduled_date;
+
+select distinct cs.id_user
+from Contents.Courses_Classes_Activities_Students ac, 
+	 Classes.Courses_Classes_Students cs, 
+	 Contents.Courses_Classes_Activities cac 
+where ac.delivery_date =< cac.scheduled_date;

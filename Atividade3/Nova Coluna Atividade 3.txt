@@ -1,0 +1,1 @@
+ALTER TABLE Classes.Courses_Classes_Students ADD student_score int not null default 0;

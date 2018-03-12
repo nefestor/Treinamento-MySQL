@@ -1,0 +1,13 @@
+Realizar update nesta tabela incrementando em +1 o valor da coluna student_score para os alunos que tiveram registros de entrega de atividades antes do prazo proposto.
+
+UPDATE Classes.Courses_Classes_Students SET student_score += 1 from (select distinct cs.id_user
+from Contents.Courses_Classes_Activities_Students ac, 
+	 Classes.Courses_Classes_Students cs, 
+	 Contents.Courses_Classes_Activities cac where ac.delivery_date <= cac.scheduled_date) as alunos
+
+Realizar update nesta tabela decrementando em -1 o valor da coluna student_score para os alunos que tiveram registros de entrega de atividades após o prazo proposto.
+
+UPDATE Classes.Courses_Classes_Students SET student_score += 1 from (select distinct cs.id_user
+from Contents.Courses_Classes_Activities_Students ac, 
+	 Classes.Courses_Classes_Students cs, 
+	 Contents.Courses_Classes_Activities cac where ac.delivery_date > cac.scheduled_date) as alunos
