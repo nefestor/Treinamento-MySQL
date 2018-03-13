@@ -1,0 +1,18 @@
+Alterar a tabela Contents.courses_classes_activities_students adicionando uma trigger para INSERT / UPDATE / DELETE para atualizar a coluna student_score na tabela Classes.courses_classes_students implementando as seguintes regras:
+INSERT 
+incrementando em +1 o valor da coluna student_score para os alunos que tiveram registros de entrega de atividades antes do prazo proposto (inspecionar a coluna delivery_date).
+decrementando em -1 o valor da coluna student_score para os alunos que tiveram registros de entrega de atividades após o prazo proposto (inspecionar a coluna delivery_date).
+
+DELETE
+Obter o valor anterior para a coluna delivery_date da tabela Contents.courses_classes_activities_students e conforme a regra do INSERT, desfazer a atualização da coluna student_score na tabela Contents.courses_classes_activities_students 
+UPDATE
+Se a data foi alterada deve reverter o valor que foi atualizado na tabela Contents.courses_classes_activities_students  desde o último INSERT e, observando a mesma regra para INSERT, atualizar esse valor. Dica: usar os eventos INSERT e DELETE como referência para implementar essa regra
+
+Criar uma view que traga as seguintes colunas e dados:
+Nome do curso
+Nome dos tutores do curso
+Nome das classes vinculadas com o curso
+Nome dos tutores das classes
+Nome dos alunos das classes
+Score dos alunos das classes
+Número de atividades entregues dos alunos
